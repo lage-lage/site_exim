@@ -1,0 +1,67 @@
+<!-- Сайт розроблено студентом Артемом Москаленком, група ФІТ2-11 -->
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронювання послуг</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Сервіс бронювання послуг</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="services.html">Послуги</a></li>
+                <li><a href="about.html">Про нас</a></li>
+                <li><a href="contact.html">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Оберіть послугу та час</h2>
+            <label for="service">Послуга:</label>
+            <select id="service">
+                <option value="wash">Автомийка</option>
+                <option value="repair">Ремонт авто</option>
+                <option value="tire">Шиномонтаж</option>
+            </select>
+
+            <label for="time">Час:</label>
+            <select id="time">
+                <option value="9">09:00</option>
+                <option value="11">11:00</option>
+                <option value="13">13:00</option>
+                <option value="15">15:00</option>
+                <option value="17">17:00</option>
+            </select>
+
+            <button onclick="bookService()">Забронювати</button>
+            <p id="confirmation"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Артем Москаленко, ФІТ2-11</p>
+    </footer>
+
+    <script>
+        function bookService() {
+            const service = document.getElementById('service').value;
+            const time = document.getElementById('time').value;
+
+            const serviceNames = {
+                wash: 'Автомийка',
+                repair: 'Ремонт авто',
+                tire: 'Шиномонтаж'
+            };
+
+            const confirmation = document.getElementById('confirmation');
+            confirmation.textContent = `Ви успішно забронювали послугу: ${serviceNames[service]} на ${time}:00.`;
+        }
+    </script>
+</body>
+</html>
